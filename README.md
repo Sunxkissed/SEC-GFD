@@ -6,3 +6,18 @@ Graph-based fraud detection (GFD) can be regarded as a challenging semi-supervis
 
 ## Implementation
 The T-Finance and T-Social datasets developed in the paper are on [google drive](https://drive.google.com/drive/folders/1PpNwvZx_YRSCDiHaBUmRIS3x1rZR7fMr?usp=sharing). Download and unzip all files in the `data` folder.
+
+
+If you use this package and find it useful, please cite our paper using the following BibTeX. Thanks! :)
+
+```
+@inproceedings{xu2024revisiting,
+  title={Revisiting graph-based fraud detection in sight of heterophily and spectrum},
+  author={Xu, Fan and Wang, Nan and Wu, Hao and Wen, Xuezhi and Zhao, Xibin and Wan, Hai},
+  booktitle={Proceedings of the AAAI conference on artificial intelligence},
+  volume={38},
+  number={8},
+  pages={9214--9222},
+  year={2024}
+}
+```
