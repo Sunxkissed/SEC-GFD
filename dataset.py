@@ -12,7 +12,7 @@ class Dataset:
         self.name = name
         graph = None
         if name == 'tfinance':
-            graph, label_dict = load_graphs('/data/workspace/yancheng/AD/Node_AD/data/tfinance')
+            graph, label_dict = load_graphs('/data/tfinance')
             graph = graph[0]
             graph.ndata['label'] = graph.ndata['label'].argmax(1)
             if del_ratio != 0:
@@ -21,7 +21,7 @@ class Dataset:
 
 
         elif name == 'tsocial':
-            graph, label_dict = load_graphs('/data/workspace/yancheng/AD/Node_AD/data/tsocial')
+            graph, label_dict = load_graphs('/data/tsocial')
             graph = graph[0]
             if del_ratio != 0:
                 graph = random_delete(graph, del_ratio)
@@ -51,7 +51,7 @@ class Dataset:
                 graph = dgl.add_self_loop(graph)
         
         elif name == 'reddit':
-            dataset = load_graphs('/data/workspace/yancheng/AD/Node_AD/data/reddit')
+            dataset = load_graphs('/data/reddit')
             graph = dataset[0][0]
             if del_ratio != 0:
                 graph = random_delete(graph, del_ratio)
@@ -73,7 +73,7 @@ def random_delete(graph, del_ratio):
     adj, edges, u, v = get_adj_from_edges(graph)
     sum = torch.sum(torch.concat((labels[u], labels[v]), dim=1), dim=1)
     index = torch.nonzero(sum == 1)
-    he_edge_num = index.shape[0]    # 异质边条数
+    he_edge_num = index.shape[0]
     threshold = int(del_ratio * he_edge_num)
     edge_to_move = index[torch.randperm(index.size(0))[:threshold]]
     graph_new = dgl.remove_edges(graph, list(edge_to_move))
