@@ -128,7 +128,7 @@ if __name__ == '__main__':
     parser.add_argument("--hid_dim", type=int, default=64, help="Hidden layer dimension")
     parser.add_argument("--epoch", type=int, default=100, help="The max number of epochs")
     parser.add_argument("--run", type=int, default=1, help="Running times")
-    parser.add_argument("--data_path", type=str, default='/data/workspace/yancheng/AD/Node_AD/data', help="data path")
+    parser.add_argument("--data_path", type=str, default='/data', help="data path")
     parser.add_argument("--adj_type", type=str, default='sym', help="sym or rw")
     parser.add_argument("--order", type=int, default=2, help="Order C in Beta Wavelet")
     parser.add_argument("--homo", type=int, default=1, help="1 for (Homo) and 0 for (Hetero)")
